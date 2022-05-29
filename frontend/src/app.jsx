@@ -1,1 +1,4 @@
-const a = <h1>jbkjhbschj</h1>
+export const App = () => {
+    const element = <p>הצלחתי בלי להעליב</p>
+    return(element)
+}
