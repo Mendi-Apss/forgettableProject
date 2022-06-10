@@ -9,7 +9,7 @@ height: 200%;
 }
 
 #sign-up-component{
-	position:relative;
-	left: 60%;
-	top: -490px;
+	right: 50%;
+	top: 10px;
+
 }
