@@ -5,7 +5,7 @@ button {
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #573b8a;
+	background: #054f48;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
@@ -32,8 +32,7 @@ input {
 .login {
     width: 350px;
 	height: 500px;
-	background: rgb(56, 122, 117);
-	overflow: hidden;
+    background: linear-gradient(to bottom, #148265, #3baa99, #3baa99,#148265);	overflow: hidden;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px rgb(15, 17, 25);
 }

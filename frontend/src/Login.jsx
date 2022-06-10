@@ -1,12 +1,19 @@
+import './stylesheet/login.css'
+
 export const Login = () => {
 
     return (
-        <div>
+        <div className="login">
             <form id="login-form">
-                <input type="email" id="user-name" placeholder="User name" /> <br />
-                <input type="password" id="user-name" placeholder="Password" /><br />
+                <label for="sign-up-form">Login</label>
+                <input type="email" id="login-user-name" placeholder="User name" /> <br />
+                <input type="password" id="login-password" placeholder="Password" /><br />
                 <button type="submit" id="login-button">Login</button>
             </form>
         </div>
     )
+}
+
+const checksAccessPermissions = () => {
+
 }
