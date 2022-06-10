@@ -1,0 +1,16 @@
+#app {
+width: 100%;
+height: 200%;
+}
+
+#login-component {
+	position:relative;
+	right: 60%;
+	top: 10px;
+}
+
+#sign-up-component{
+	position:relative;
+	left: 60%;
+	top: -490px;
+}
