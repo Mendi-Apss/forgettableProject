@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './stylesheet/sign-up.css'
 const Axios = require('axios')
+
 export const SignUpForm = () => {
 
     const [userName, setUserName] = useState('')
@@ -28,7 +29,7 @@ export const SignUpForm = () => {
 
                 <input type="password" id="sign-up-password" placeholder="Password"
                  value={password} onChange={element => setPassword(element.target.value)} /><br />
-                 
+
                 <button type="submit" id="sign-up-button">Sign Up</button>
             </form>
         </div>
