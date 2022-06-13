@@ -1,49 +1,11 @@
-button {
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
-
-input {
-	width: 60%;
-	height: 20px;
-	background: #e0dede;
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
-	padding: 10px;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-}
-
 .sign-up {
-    width: 350px;
-	height: 500px;
-    background: linear-gradient(to bottom, #2516aa, #056557, #889b59);	overflow: hidden;
-	border-radius: 10px;
-	box-shadow: 5px 20px 50px rgb(15, 17, 25);
+	height: 460px;
+	background: rgb(247, 249, 248);
+	border-radius: 60% / 10%;
+	transform: translateY(-210px);
+	transition: 1s ease-in-out;
 }
 
-label {
-	color: #fff;
-	font-size: 2.3em;
-	justify-content: center;
-	display: flex;
-	margin: 60px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
+.sign-up label{
+	color: #573b8a;
 }
