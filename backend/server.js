@@ -1,6 +1,6 @@
 const express = require('express')
-const { connectToMongodb, createUser } = require('./db')
 const cors = require('cors')
+const { connectToMongodb, createUser, checkForUserPermissions } = require('./db')
 const app = express()
 
 const connectToMongodbAndStartServer = async () => {
@@ -9,11 +9,15 @@ const connectToMongodbAndStartServer = async () => {
     app.use(cors())
     app.use(express.json())
 
-    app.post('/', (req, res) => {
+    app.post('/sign-up', (req, res) => {
         createUser(req.body)
     })
 
-    app.listen(8080, () => {
+    app.post('/login', async (req, res) => {
+        res.send(await checkForUserPermissions(req.body))
+    })
+
+    app.listen(8080,() => {
         console.log('listen to port 8080');
     })
 }
