@@ -18,14 +18,12 @@ export const SignUpForm = () => {
         console.log(user);
 
         Axios.post('http://localhost:8080/sign-up', user)
-
-
     }
 
     return (
         <div className="sign-up">
             <form id="sign-up-form" onSubmit={sendUserData}>
-                <label for="login-sign-up-form"> Sign Up</label>
+                <label htmlFor="login-sign-up-form"> Sign Up</label>
 
                 <input type="email" id="sign-up-user-name" placeholder="Email"
                     value={email} onChange={element => setEmail(element.target.value)} /> <br />
