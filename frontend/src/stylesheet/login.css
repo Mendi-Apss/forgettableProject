@@ -7,3 +7,11 @@
 	box-shadow: 5px 20px 50px rgb(15, 17, 25);
 }
 
+#error-massege{
+	background-color: rgba(252, 2, 2, 0.698);
+	color: rgb(93, 1, 1);
+	position: relative;
+	left: 25%;
+	font-family:cursive
+}
+
