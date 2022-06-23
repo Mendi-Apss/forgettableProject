@@ -58,7 +58,10 @@ module.exports.checkForUserPermissions = async (userDetails) => {
              */
             const ifPasswordIsTrue = await bcrypt.compare(userDetails.password, checkUser.password)
             console.log(ifPasswordIsTrue);
-            return ifPasswordIsTrue
+            return {
+                "ifThrIsPermissions": ifPasswordIsTrue,
+                "userForCookie": checkUser.userName
+            }
         }
         else {
             return false

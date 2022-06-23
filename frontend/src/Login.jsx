@@ -2,6 +2,7 @@ import './stylesheet/login.css'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Chip } from '@mui/material'
+import { useCookies } from 'react-cookie';
 const axios = require('axios')
 
 export const Login = () => {
@@ -9,6 +10,7 @@ export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
+    const [cookies, setCookie] = useCookies(null);
     const page = useHistory()
 
     const errorMassege = () => {
@@ -25,8 +27,9 @@ export const Login = () => {
 
         axios.post('http://localhost:8080/login', user)
             .then((res) => {
-                if (res.data) {
+                if (res.data.ifThrIsPermissions) {
                     console.log(res.data);
+                    setCookie('user', res.data.userForCookie,{path:'/'})
                     page.push('/home')
                 }
                 else {
