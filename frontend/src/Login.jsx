@@ -13,7 +13,7 @@ export const Login = () => {
 
     const errorMassege = () => {
         return (
-            <Chip label='Wrong email or password' id='error-massege'/>
+            <Chip label='Wrong email or password' id='error-massege' />
         )
     }
 
@@ -48,7 +48,9 @@ export const Login = () => {
 
                 <input type="password" id="login-password" placeholder={'Password'}
                     value={password} onChange={element => setPassword(element.target.value)} /><br />
-                <p>{error}</p>
+
+                <div id='error-popup-massege'> {error} </div>
+
                 <button id="login-button" onClick={submitLogin}>Login</button>
 
             </div>
