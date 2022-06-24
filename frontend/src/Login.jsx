@@ -10,7 +10,7 @@ export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
-    const [cookies, setCookie] = useCookies(null);
+    const [cookies, setCookie] = useCookies();
     const page = useHistory()
 
     const errorMassege = () => {
