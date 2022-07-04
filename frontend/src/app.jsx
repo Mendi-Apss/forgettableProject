@@ -3,10 +3,21 @@ import { SignUpForm } from "./SignUp"
 import './stylesheet/app.css'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { Home } from "./Home"
+import { useCookies } from 'react-cookie';
+
 
 
 export const App = () => {
 
+    const [cookie, setCookie] = useCookies()
+    const ifCookie = () => {
+        if (cookie.user) {
+            return <Home />
+        }
+        else {
+            return <h1>fuck you</h1>
+        }
+    }
     return (
         <Router>
             <Switch>
@@ -21,7 +32,7 @@ export const App = () => {
                     </div>
                 </Route>
                 <Route exact path='/home'>
-                    <Home />
+                    {ifCookie}
                 </Route>
             </Switch>
         </Router>
