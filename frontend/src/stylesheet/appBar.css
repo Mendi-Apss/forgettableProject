@@ -1,0 +1,13 @@
+#app-bar {
+    background-color: rgb(43, 147, 188);
+    height: 50px;
+
+}
+
+#user-chip{
+    left: 2%;
+    width: 13%;
+    position: relative;
+    top: 15%;
+}
+
