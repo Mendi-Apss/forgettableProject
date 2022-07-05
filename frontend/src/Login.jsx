@@ -5,7 +5,7 @@ import { Alert } from '@mui/material'
 import { useCookies } from 'react-cookie';
 const axios = require('axios')
 
-export const Login = () => {
+export const LoginForm = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
