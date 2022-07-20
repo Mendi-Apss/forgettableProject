@@ -10,7 +10,7 @@ import { useCookies } from 'react-cookie';
 export const App = () => {
 
     const [cookie, setCookie] = useCookies()
-
+   
     const ifCookieExist = () => {
         if (cookie.user) {
             return <Home />
