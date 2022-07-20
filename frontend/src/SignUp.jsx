@@ -1,43 +1,71 @@
-import { useState } from 'react'
-import './stylesheet/sign-up.css'
-const Axios = require('axios')
+import { useState } from "react";
+import "./stylesheet/sign-up.css";
+const Axios = require("axios");
 
 export const SignUpForm = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    userName: "",
+    password: "",
+  });
 
-    const [email, setEmail] = useState('')
-    const [userName, setUserName] = useState('')
-    const [password, setPassword] = useState('')
-    
+  function handleChange(event) {
+    const { name, value } = event.target;
 
-    const sendUserData = () => {
-        const user = {
-            email : email,
-            userName: userName,
-            password: password
-        }
-        console.log(user);
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value,
+      };
+    });
+  }
 
-        Axios.post('http://localhost:8080/sign-up', user)
-    }
+  const sendUserData = () => {
+    const user = {
+      email: formData.email,
+      userName: formData.userName,
+      password: formData.password,
+    };
+    console.log(user);
 
-    return (
-        <div className="sign-up">
-            <form id="sign-up-form" onSubmit={sendUserData}>
-                <label htmlFor="login-sign-up-form"> Sign Up</label>
+    Axios.post("http://localhost:8080/sign-up", user);
+  };
 
-                <input type="email" id="sign-up-user-name"  placeholder="Email"
-                    value={email} onChange={element => setEmail(element.target.value)} /> <br />
-
-                <input type="text" id="sign-up-username"  placeholder="User name"
-                    value={userName} onChange={element => setUserName(element.target.value)} /><br />
-
-                <input type="password" id="sign-up-password"  placeholder="Password"
-                    value={password} onChange={element => setPassword(element.target.value)} /><br />
-
-                <button type="submit" id="sign-up-button">Sign Up</button>
-            </form>
-        </div>
-
-
-    )
-}
+  return (
+    <div className="sign-up">
+      <form id="sign-up-form" onSubmit={sendUserData}>
+        <label htmlFor="login-sign-up-form"> Sign Up</label>
+        <input
+          type="email"
+          id="sign-up-user-name"
+          placeholder="Email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />{" "}
+        <br />
+        <input
+          type="text"
+          id="sign-up-username"
+          placeholder="User name"
+          name="userName"
+          value={formData.userName}
+          onChange={handleChange}
+        />
+        <br />
+        <input
+          type="password"
+          id="sign-up-password"
+          placeholder="Password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <br />
+        <button type="submit" id="sign-up-button">
+          Sign Up
+        </button>
+      </form>
+    </div>
+  );
+};
