@@ -25,13 +25,13 @@ export const SignUpForm = () => {
             <form id="sign-up-form" onSubmit={sendUserData}>
                 <label htmlFor="login-sign-up-form"> Sign Up</label>
 
-                <input type="email" id="sign-up-user-name" required='true' placeholder="Email"
+                <input type="email" id="sign-up-user-name"  placeholder="Email"
                     value={email} onChange={element => setEmail(element.target.value)} /> <br />
 
-                <input type="text" id="sign-up-username" required='true' placeholder="User name"
+                <input type="text" id="sign-up-username"  placeholder="User name"
                     value={userName} onChange={element => setUserName(element.target.value)} /><br />
 
-                <input type="password" id="sign-up-password" required='true' placeholder="Password"
+                <input type="password" id="sign-up-password"  placeholder="Password"
                     value={password} onChange={element => setPassword(element.target.value)} /><br />
 
                 <button type="submit" id="sign-up-button">Sign Up</button>
