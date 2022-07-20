@@ -1,8 +1,7 @@
 import './stylesheet/login.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Alert } from '@mui/material'
-import { useCookies } from 'react-cookie';
 const axios = require('axios')
 
 export const LoginForm = () => {
@@ -10,12 +9,7 @@ export const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
-  const [cookie, setCookie, removCookies] = useCookies()
   const page = useHistory()
-
-  useEffect(() => {
-    removCookies('user')
-  }, [])
 
   const errorMassege = () => {
     return (
@@ -26,6 +20,7 @@ export const LoginForm = () => {
   }
 
   const submitLogin = () => {
+    console.log("1");
     const user = {
       email: email,
       password: password
@@ -34,11 +29,6 @@ export const LoginForm = () => {
     axios.post('http://localhost:8080/login', user)
       .then((res) => {
         if (res.data.Permissions) {
-          console.log(res.data);
-          console.log(res);
-          localStorage.setItem('user-name', res.data.userName)
-          setCookie('user', res.data.cookie)
-          page.push('/home')
         }
         else {
           setError(errorMassege())
