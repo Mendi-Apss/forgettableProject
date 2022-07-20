@@ -1,0 +1,11 @@
+.sign-up {
+	height: 460px;
+	background: rgb(247, 249, 248);
+	border-radius: 60% / 10%;
+	transform: translateY(-210px);
+	transition: 1s ease-in-out;
+}
+
+.sign-up label{
+	color: #573b8a;
+}
