@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
 
-export const authentication = (data) => {
+module.exports.authentication = (data) => {
     return jwt.sign(data.userName, 'mendi')
 }
