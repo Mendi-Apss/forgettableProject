@@ -2,7 +2,7 @@ import "./stylesheet/login.css";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Chip } from "@mui/material";
-const axios = require("axios");
+const Axios = require("axios");
 
 export const Login = () => {
   const [error, setError] = useState(null);
@@ -31,9 +31,9 @@ export const Login = () => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    axios.post("http://localhost:8080/login", formData).then(async (res) => {
+    Axios.post("http://localhost:8080/login", formData, {withCredentials: true}).then(async (res) => {
       if(res.data.status == '200') {
-          console.log(res.data);
+          console.log(res);
           page.push("/home");
       }
       else {

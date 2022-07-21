@@ -34,7 +34,7 @@ export const App = () => {
                     </div>
                 </Route>
                 <Route exact path='/home'>
-                    <Home />
+                    {ifCookieExist}
                 </Route>
             </Switch>
         </Router>
