@@ -5,7 +5,7 @@ const dbConnection = require('./dbConnection')
 // connects to the database
 module.exports.connectToMongodb = async () => {
     // uses connect() from mongoose to connect async to the db 
-    await mongoose.connect(dbConnection)
+    await mongoose.connect(dbConnection.dbConnection)
 }
 
 // creates new schema shape
