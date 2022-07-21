@@ -2,14 +2,10 @@ import "./stylesheet/login.css";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Chip } from "@mui/material";
-import { useCookies } from "react-cookie";
 const axios = require("axios");
 
 export const Login = () => {
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
   const [error, setError] = useState(null);
-  const [cookies, setCookie] = useCookies(null);
   const page = useHistory();
 
   const [formData, setFormData] = useState({
@@ -35,17 +31,17 @@ export const Login = () => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    axios.post("http://localhost:8080/login", formData).then((res) => {
-      if (res.data.ifThrIsPermissions) {
-        console.log(res.data);
-        setCookie("user", res.data.userForCookie, { path: "/" });
-        page.push("/home");
-      } else {
+    axios.post("http://localhost:8080/login", formData).then(async (res) => {
+      if(res.data.status == '200') {
+          console.log(res.data);
+          page.push("/home");
+      }
+      else {
         setError(errorMassege);
         setFormData({
           email: "",
           password: "",
-        });
+        })
       }
     });
   }
