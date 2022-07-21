@@ -1,7 +1,11 @@
-import {MenuBar} from './MenueBar'
+import { MenuBar } from './MenueBar'
+import { Mood } from './Mood'
 
 export const Home = () => {
     return (
-        <MenuBar/>
+        <div>
+            <MenuBar />
+            <Mood props />
+        </div>
     )
 }
