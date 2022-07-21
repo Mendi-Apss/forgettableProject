@@ -20,13 +20,16 @@ const connectToMongodbAndStartServer = async () => {
     app.post('/login', async (req, res) => {
         const response = await checkForUserPermissions(req.body)
         if (response) {
-            const cookie = authentication(response)
-            console.log(cookie);
-            res.cookie('user-token', cookie).sendStatus(200)
-            console.log();
+            const cookie = authentication.authentication(response)
+            console.log(response);
+            res.cookie('user', cookie).send({
+                status : 200,
+                user : response,
+                cookie : cookie
+            })
         }
         else {
-            res.sendStatus(401)
+            res.send('401')
         }
     })
 
