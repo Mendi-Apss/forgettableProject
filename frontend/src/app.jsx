@@ -1,4 +1,4 @@
-import { LoginForm } from "./Login"
+import { Login } from "./Login"
 import { SignUpForm } from "./SignUp"
 import './stylesheet/app.css'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
@@ -9,14 +9,14 @@ import { useCookies } from 'react-cookie';
 
 export const App = () => {
 
-    const [cookie, setCookie] = useCookies()
-   
+    const [cookie] = useCookies()
+
     const ifCookieExist = () => {
         if (cookie.user) {
             return <Home />
         }
         else {
-            return <Redirect to={'/login'}/>
+            return <Redirect to={'/login'} />
         }
     }
 
@@ -29,12 +29,12 @@ export const App = () => {
                 <Route exact path={'/login'}>
                     <div id="app">
                         <input type="checkbox" id="login-sign-up-form" aria-hidden="true"></input>
-                        <LoginForm />
+                        <Login />
                         <SignUpForm />
                     </div>
                 </Route>
                 <Route exact path='/home'>
-                    {ifCookieExist}
+                    <Home />
                 </Route>
             </Switch>
         </Router>
